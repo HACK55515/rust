@@ -14,41 +14,40 @@ it would be `T-libs`.
 Also check for any `A-` labels to add.
 -->
 
-This is the **tracking issue** for the `YOUR_LINT_NAME_HERE` future-compatibility warning and other related errors. The goal of this page is to describe why this change was made and how you can fix code that is affected by it. It also provides a place to ask questions or register a complaint if you feel the change should not be made. For more information on the policy around future-compatibility warnings, see our [breaking change policy guidelines][guidelines].
+This is the tracking issue for the `YOUR_LINT_NAME_HERE` future-compatibility
+warning and other related errors. The goal of this page is to describe why this
+change was made, what code patterns trigger it, and how users can fix or
+prepare for it before the warning becomes a hard error.
 
 [guidelines]: https://rustc-dev-guide.rust-lang.org/bug-fix-procedure.html
 
 ### What is the warning for?
 
-*Describe the conditions that trigger the warning.*
+*Describe the conditions that trigger the warning and what behavior is being
+flagged. Include the relevant lint name and any edition, feature, or code pattern
+that activates it.*
+
+### Who is affected?
+
+*Describe the scope of the change: which users are affected, whether the warning
+is common or rare, and whether it is expected to fire in dependent crates or only
+in the crate containing the code.*
 
 ### Why was this change made?
 
-*Explain why this change was made. If there is additional context, like an MCP, link it here.*
+*Explain why this change was made. If there is additional context, such as an
+RFC, MCP, issue, or design discussion, link it here. Describe the underlying
+problem, the intended long-term behavior, and why a future-incompatible warning
+is being used instead of an immediate hard error.*
 
 ### Example
 
 ```rust
-// Include an example here.
-```
+// Include an example here that triggers the lint.
 
-### Recommendations
-
-*Give some recommendations on how a user can avoid the lint.*
-
-### When will this warning become a hard error?
-
-*If known, describe the future plans. For example, how long you anticipate this being a warning, or if there are other factors that will influence the anticipated closure.*
-
-### Steps
-
-- [ ] Implement the lint
-- [ ] Raise lint level to deny
-- [ ] Change the lint to report in dependencies
-- [ ] Switch to a hard error
-
-### Implementation history
-
-<!--
-Include a list of all the PRs that were involved in implementing the lint.
--->
+This version keeps the same structure while adding:
+- a clearer scope/impact section
+- more explicit rationale for the lint
+- stronger migration guidance
+- a rollout checklist that matches real future-incompatibility transitions
+- better guidance for tracking implementation history
